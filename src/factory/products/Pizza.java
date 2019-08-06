@@ -1,22 +1,20 @@
 package factory.products;
 
-import java.util.ArrayList;
+import factory.ingredients.cheese.Cheese;
+import factory.ingredients.clams.Clams;
+import factory.ingredients.dough.Dough;
+import factory.ingredients.pepperoni.Pepperoni;
+import factory.ingredients.sauces.Sauce;
+import factory.ingredients.veggies.Veggies;
 
 public abstract class Pizza {
     protected String name;
-    protected String dough;
-    protected String sauce;
-    protected ArrayList<String> toppings = new ArrayList();
-
-    public void prepare() {
-        System.out.println("Preparing " + name);
-        System.out.println("Tossing dough...");
-        System.out.println("Adding sauce...");
-        System.out.println("Adding toppings: ");
-        for(String topping : toppings) {
-            System.out.println("     " + topping);
-        }
-    }
+    protected Dough dough;
+    protected Sauce sauce;
+    protected Veggies veggies[];
+    protected Cheese cheese;
+    protected Pepperoni pepperoni;
+    protected Clams clam;
 
     public void bake() {
         System.out.println("Bake for 25 mins at 350");
@@ -30,7 +28,15 @@ public abstract class Pizza {
         System.out.println("Place the pizza in official PizzaStore box");
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public String toString() {
+        return "pizza";
     }
 }
